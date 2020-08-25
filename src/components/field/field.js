@@ -1,31 +1,35 @@
-import React, { useState } from "react";
-import { Triangle } from "react-shapes";
-import { Box, Wrapper, TriangleWrap, Opener } from "./styledFields";
+import React from "react";
+import { bool } from "prop-types";
+import { Box } from "./styledFields";
 
-const Field = ({ children, dir, color }) => {
-  const [open, setOpen] = useState("-100");
-  const [idx, setIdx] = useState("100");
-
-  const setStyle = (open, idx) => {
-    setOpen(open);
-    setIdx(idx);
-  };
-
+const Field = ({ children, open, dir, color }) => {
   return (
-    <Box margin={open} idx={idx} className={`${dir}`}>
-      <Wrapper margin={open} color={color} idx={idx} className={`${dir}`}>
+    <Box open={open} margin={open} className={`${dir}`}>
+      <a href="/">
+        <span role="img" aria-label="about us">
+          &#x1f481;&#x1f3fb;&#x200d;&#x2642;&#xfe0f;
+        </span>
+        About us
+      </a>
+      <a href="/">
+        <span role="img" aria-label="price">
+          &#x1f4b8;
+        </span>
+        Pricing
+      </a>
+      <a href="/">
+        <span role="img" aria-label="contact">
+          &#x1f4e9;
+        </span>
+        Contact
         {children}
-        <p>page contents</p>
-        <button onClick={() => setStyle("-100", "100")}>Change</button>
-      </Wrapper>
-
-      <TriangleWrap idx={idx} color={color} className={`${dir}`}>
-        <Opener idx={idx} className={`${dir}`}>
-          <button onClick={() => setStyle("0", "1000")}>Change</button>
-        </Opener>
-      </TriangleWrap>
+      </a>
     </Box>
   );
+};
+
+Field.propTypes = {
+  open: bool.isRequired
 };
 
 export default Field;
