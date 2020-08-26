@@ -1,113 +1,62 @@
 import styled from "styled-components";
 
-export const TriangleWrap = styled.span`
-  
+export const StyledBurger = styled.button`
+  position: absolute;
 
-  &.left {
-    height: 100vh;
-    display: block;
-    float: right;
-    width: 10vw;
-     
-  &.right {
-    height: 0;
-    display: block;
-    float: left;
-    width: 10vw;
-  }
-  &.top {
-     
-    display: block;
-    flex-direction: top;
-  }
-  &.bottom {
-  }
-  transition: all 0.8s 0.2s ease-in-out;
-`;
-
-export const Box = styled.span`
-position: relative
-  z-index: ${(props) => props.idx};
-  &.left {
-    margin-top: 0;
-    display: flex;
-    height: 0;
-    width: 110vw;
-    margin-left: ${(props) => props.margin}vw;
-  }
-  &.right {
-    margin-top: 0;
-    display: flex;
-    flex-direction: row-reverse;
-    float: right;
-    height: 0;
-    width: 110vw;
-    margin-right: ${(props) => props.margin}vw;
-  }
-  &.top {
-    display: block;
-    min-height: 110vh;
-    margin-top: ${(props) => props.margin}vh;
-  }
-  &.bottom {
-    height: 110vh;
-    width: 0;
-    margin-bottom: ${(props) => props.margin}vh;
-  }
-
-  transition: all 0.8s 0.2s ease-in-out;
-`;
-export const Wrapper = styled.span`
-  background-color: ${(props) => props.color};
-  height: 100vh;
-  width: 100vw;
-
-  margin: 0;
-
-  p,
-  button {
-    margin: 0;
-    padding: 100px;
-  }
-  &.left {
-    display: block;
-    float: left;
-  }
-  &.right {
-    display: block;
-    float: right;
-  }
-  &.top {
-    margin: 0;
-    display: block;
-    float: top;
-  }
-  &.bottom {
-    float: top;
-  }
-  transition: all 0.8s 0.2s ease-in-out;
-`;
-
-export const Opener = styled.span`
+  top: 5%;
+  left: 2rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  display: float;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
 
-  &.left {
-    height: 100vh;
-    width: 10vw;
+  &:focus {
+    outline: none;
   }
-  &.right {
-    height: 100vh;
-    width: 10vw;
+
+  div {
+    width: 2rem;
+    height: 0.25rem;
+    background: blue;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
   }
-  &.top {
-    height: 10vh;
-    width: 100vw;
-  }
-  &.bottom {
-    height: 10vh;
-    width: 100vw;
+`;
+
+export const Box = styled.nav`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: red;
+  height: 100vh;
+  text-align: left;
+  padding: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
+  a {
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 2rem 0;
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s linear;
+
+    &:hover {
+      color: orange;
+    }
   }
 `;

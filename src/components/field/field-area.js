@@ -2,7 +2,7 @@ import React from "react";
 import { bool } from "prop-types";
 import { Box } from "./styledFields";
 
-const Field = ({ children, open, dir, color }) => {
+const FieldArea = ({ children, open, dir, color }) => {
   return (
     <Box open={open} margin={open} className={`${dir}`}>
       <a href="/">
@@ -28,8 +28,8 @@ const Field = ({ children, open, dir, color }) => {
   );
 };
 
-Field.propTypes = {
+FieldArea.propTypes = {
   open: bool.isRequired
 };
 
-export default Field;
+export default FieldArea;
